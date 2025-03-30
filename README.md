@@ -168,20 +168,26 @@ CORS_ALLOWED_ORIGINS=http://localhost:3000
 pip install -r requirements.txt
 ```
 
-5. **Run migrations**
+5. **Reach the order_book_backend directory inside server directory for the further setup**
+
+```bash
+cd /order_book_backend
+```
+
+6. **Run migrations**
 
 ```bash
 cd order_book_backend
 python manage.py migrate
 ```
 
-6. **Create a superuser (admin)**
+7. **Create a superuser (admin)**
 
 ```bash
 python manage.py createsuperuser
 ```
 
-7. **Run the development server**
+8. **Run the development server**
 
 ```bash
 python manage.py runserver
