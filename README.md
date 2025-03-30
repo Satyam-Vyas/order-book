@@ -1,6 +1,8 @@
 # Order Book Application
 
-A real-time order book application for a single token (RELIANCE), featuring bidding and asking orders with a clean, responsive UI. The application allows users to view the order book, place orders, and see trade history.
+A real-time order book application for a single token (eg. RELIANCE), featuring bidding and asking orders with a clean, responsive UI. The application allows users to view the order book, place orders, and see trade history.
+
+**The client and server setup guide is available in this readme.md**
 
 ## Features
 
@@ -14,12 +16,6 @@ A real-time order book application for a single token (RELIANCE), featuring bidd
 
 ## Frontend Application
 
-### Prerequisites
-
-- Node.js
-- npm or yarn
-- Git
-
 ### Frontend Setup
 
 1. Clone this repository:
@@ -29,26 +25,29 @@ A real-time order book application for a single token (RELIANCE), featuring bidd
    ```
 
 2. Install dependencies:
+   to install bun, you can simply run
+   ```
+   npm install -g bun
+   ```
+   then run
    ```
    bun install
    ```
-    or
-   ```
-   npm install
-   ```
+
+   if you want to use npm -> 
    Note: Some dependencies may have not yet been upadated to support React 19. If you get any errors about depencency compatability, run the following:
 
    ```
    npm install --legacy-peer-deps
    ```
 
-3. Configure environment variables:
-   - Create a `.env.local` file
+3. Configure environment variables in client directory:
+   - Create a `.env.local` file in the **client directory** with the following setup
    ```
    NEXT_PUBLIC_API_BASE_URL=http://localhost:8000/api/users
    NEXT_PUBLIC_TRADING_API_BASE_URL=http://localhost:8000/api/trading
    ```
-   or set it to the backend url in production.
+   or set it to the actual backend base url in production.
 
 ## Running the Application
 
@@ -126,10 +125,9 @@ DATABASES = {
 
 ### Backend Setup
 
-1. **Clone the repository**
+1. **Clone the repository & reach the server directory**
 
 ```bash
-git clone <repository-url>
 cd server
 ```
 
@@ -145,10 +143,10 @@ python3 -m venv venv
 source venv/bin/activate
 ```
 
-3. **Setup environment variables**
+3. **Setup environment variables(in server directory)**
 
 ```bash
-# Create a .env file in the project root with the following settings:
+# Create a .env file in the server directory with the following settings:
 
 # Django settings
 SECRET_KEY=your-secret-key-here
@@ -197,7 +195,7 @@ The API will be available at http://localhost:8000/
 
 - `POST /api/users/signup/`: Register a new user
 - `POST /api/users/login/`: Log in and get tokens
-- `POST /api/users/token/`: Get JWT tokens
+- `POST /api/users/token/`: given credentials, gets JWT tokens
 - `POST /api/users/token/refresh/`: Refresh JWT token
 
 ### Trading
